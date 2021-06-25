@@ -4,7 +4,12 @@ enum AgeOptions { dez_a_20_anos, vinte_e_um_a_30_anos, trinta_e_um_a_40_anos, qu
                   cinquenta_e_um_a_60_anos, acima_de_60_anos }
 
 class AgeRadioStatefulWidget extends StatefulWidget {
-  const AgeRadioStatefulWidget({Key? key}) : super(key: key);
+  final void Function(AgeOptions? option) onOptionSelected //atributo criado como função
+;
+  const AgeRadioStatefulWidget({ //parâmetro para o construtor, que vai receber o valor a ser passado
+    Key? key, 
+    required this.onOptionSelected
+    }) : super(key: key);
 
   @override
   State<AgeRadioStatefulWidget> createState() => _AgeRadioStatefulWidget();
@@ -32,6 +37,7 @@ class _AgeRadioStatefulWidget extends State<AgeRadioStatefulWidget> {
             onChanged: (AgeOptions? value) {
               setState(() {
                 _age = value;
+                widget.onOptionSelected(value); // atribuo o valor para o parâmetro
               });
             },
             activeColor: Colors.greenAccent,
@@ -51,6 +57,7 @@ class _AgeRadioStatefulWidget extends State<AgeRadioStatefulWidget> {
             onChanged: (AgeOptions? value) {
               setState(() {
                 _age = value;
+                widget.onOptionSelected(value); // atribuo o valor para o parâmetro
               });
             },
             activeColor: Colors.greenAccent,
@@ -70,6 +77,7 @@ class _AgeRadioStatefulWidget extends State<AgeRadioStatefulWidget> {
             onChanged: (AgeOptions? value) {
               setState(() {
                 _age = value;
+                widget.onOptionSelected(value); // atribuo o valor para o parâmetro
               });
             },
             activeColor: Colors.greenAccent,
@@ -89,6 +97,7 @@ class _AgeRadioStatefulWidget extends State<AgeRadioStatefulWidget> {
             onChanged: (AgeOptions? value) {
               setState(() {
                 _age = value;
+                widget.onOptionSelected(value); // atribuo o valor para o parâmetro
               });
             },
             activeColor: Colors.greenAccent,
@@ -108,6 +117,7 @@ class _AgeRadioStatefulWidget extends State<AgeRadioStatefulWidget> {
             onChanged: (AgeOptions? value) {
               setState(() {
                 _age = value;
+                widget.onOptionSelected(value); // atribuo o valor para o parâmetro
               });
             },
             activeColor: Colors.greenAccent,
@@ -127,6 +137,7 @@ class _AgeRadioStatefulWidget extends State<AgeRadioStatefulWidget> {
             onChanged: (AgeOptions? value) {
               setState(() {
                 _age = value;
+                widget.onOptionSelected(value); // atribuo o valor para o parâmetro
               });
             },
             activeColor: Colors.greenAccent,

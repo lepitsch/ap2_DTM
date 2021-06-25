@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 enum CholesterolOptions { abaixo_180_sem_gordura_animal, de_181_a_205_com_10_gordura_animal,
@@ -5,7 +7,8 @@ enum CholesterolOptions { abaixo_180_sem_gordura_animal, de_181_a_205_com_10_gor
                           de_256_a_280_com_40_gordura_animal, acima_281_com_50_gordura_animal }
 
 class CholesterolRadioStatefulWidget extends StatefulWidget {
-  const CholesterolRadioStatefulWidget({Key? key}) : super(key: key);
+  final void Function(CholesterolOptions? option) onOptionSelected;
+  const CholesterolRadioStatefulWidget({Key? key, required this.onOptionSelected}) : super(key: key);
 
   @override
   State<CholesterolRadioStatefulWidget> createState() => _CholesterolRadioStatefulWidget();
@@ -33,6 +36,7 @@ class _CholesterolRadioStatefulWidget extends State<CholesterolRadioStatefulWidg
             onChanged: (CholesterolOptions? value) {
               setState(() {
                 _cholesterol = value;
+                widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -52,6 +56,7 @@ class _CholesterolRadioStatefulWidget extends State<CholesterolRadioStatefulWidg
             onChanged: (CholesterolOptions? value) {
               setState(() {
                 _cholesterol = value;
+                widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -71,6 +76,7 @@ class _CholesterolRadioStatefulWidget extends State<CholesterolRadioStatefulWidg
             onChanged: (CholesterolOptions? value) {
               setState(() {
                 _cholesterol = value;
+                widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -90,6 +96,7 @@ class _CholesterolRadioStatefulWidget extends State<CholesterolRadioStatefulWidg
             onChanged: (CholesterolOptions? value) {
               setState(() {
                 _cholesterol = value;
+                widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -109,6 +116,7 @@ class _CholesterolRadioStatefulWidget extends State<CholesterolRadioStatefulWidg
             onChanged: (CholesterolOptions? value) {
               setState(() {
                 _cholesterol = value;
+                widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -128,6 +136,7 @@ class _CholesterolRadioStatefulWidget extends State<CholesterolRadioStatefulWidg
             onChanged: (CholesterolOptions? value) {
               setState(() {
                 _cholesterol = value;
+                widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),

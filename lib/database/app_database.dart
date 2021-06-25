@@ -10,8 +10,15 @@ class DatabaseHelper {
   String personTable = 'person_table';
   String colId = 'id';
   String colName = 'name';
-  String colAge = 'age';
-//  String colDesc = 'desc';
+  String colAgeOptions = '_ageOptions';
+  String colBloodPressureOptions = "_bloodPressureOptions";
+  String colCholesterolOptions = "_cholesterolOptions";
+  String colFamilyIllnessOptions = "_familyIllnessOptions";
+  String colGenderOptions = "_genderOptions";
+  String colSmokeOptions = "_smokeOptions"; 
+  String colWheightOptions = "_wheightOptions";
+
+
 
   DatabaseHelper._createInstancia(); //Construtor nomeado.
 
@@ -24,7 +31,8 @@ class DatabaseHelper {
 
   void _createDb(Database db, int newVersion) async {
     await db.execute(
-        'Create table $personTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colName TEXT, $colAge Text)');
+        'Create table $personTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colName TEXT, $colAgeOptions INTEGER, $colBloodPressureOptions INTEGER, $colCholesterolOptions INTEGER, $colFamilyIllnessOptions INTEGER, $colGenderOptions INTEGER, $colSmokeOptions INTEGER, $colWheightOptions INTEGER)');
+        //VERIFICAR SE TODOS FICAM COMO INTEGER
   }
 
     Future<Database> initializeDatabase() async{
@@ -41,12 +49,12 @@ class DatabaseHelper {
     return _database;
     }
 
-//   //add
-//     Future<int> insertPerson(Person person) async{
-//       Database db = await this.database;
-//       var result=db.insert(personTable, person.toMap());
-//       return result;
-//     }
+  //add
+    Future<int> insertPerson(Person person) async{
+      Database db = await this.database;
+      var result=db.insert(personTable, person.toMap());
+      return result;
+    }
 
 // //update
 //     Future<int> updatePerson(Person person) async {

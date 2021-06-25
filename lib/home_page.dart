@@ -1,5 +1,8 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_ap2/Models/person.dart';
 import 'package:flutter_ap2/widgets/activity_radio.dart';
 import 'package:flutter_ap2/widgets/age_radio.dart';
 import 'package:flutter_ap2/widgets/blood_pressure_radio.dart';
@@ -14,6 +17,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int _age;
+    int _bloodPressure;
+    int _cholesterol;
+
     return NotificationListener<OverscrollIndicatorNotification>(
       onNotification: (OverscrollIndicatorNotification? overscroll) {
         overscroll!.disallowGlow();
@@ -110,7 +117,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                AgeRadioStatefulWidget(),
+                AgeRadioStatefulWidget(
+                  onOptionSelected: (value){
+                    _age=value!.index;
+                  },
+                ),
                 SizedBox(height: 25),
                 Row(
                   children: [
@@ -175,7 +186,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                BloodPressureRadioStatefulWidget(),
+                BloodPressureRadioStatefulWidget(
+                  onOptionSelected: (value){
+                    _bloodPressure=value!.index;
+                  },
+                ),
                 SizedBox(height: 25),
                 Row(
                   children: [
@@ -201,7 +216,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                CholesterolRadioStatefulWidget(),
+                CholesterolRadioStatefulWidget(
+                  onOptionSelected: (value){
+                    _cholesterol=value!.index;
+                  },
+                ),
                 SizedBox(height: 20),
                 Container(          //CONTAINER DO RESULTADO FINAL COM A INFO DA SOMA
 
@@ -310,7 +329,7 @@ class HomePage extends StatelessWidget {
                           Icon(
                             Icons.favorite,
                             color: Colors.greenAccent,
-                            size: 30,
+                            size: 20,
                           ),
                         ],
                       ),
@@ -321,6 +340,13 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: (){
+              Person p1= Person(_name, _age, _bloodPressure, _cholesterol, _familyIllnessOptions, _genderOptions, _smokeOptions, _wheightOptions);
+
+            }, tooltip: "Salvar Avaliação",
+            child: Icon (Icons.save),
+          ),
         // bottomNavigationBar: Container(
         //   color: Colors.yellow,
         //   height: 60,
@@ -342,5 +368,12 @@ class HomePage extends StatelessWidget {
     );
   }
   
+  // void _showAlertDialog(String title, String message){
+  //   AlertDialog alertDialog = AlertDialog(
+  //     title: Text(title),
+  //     content: Text(age_radio.),
+  //   );
+  //   showDialog(context: this, builder:(_) => alertDialog);
+  // }
 
 }
