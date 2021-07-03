@@ -5,7 +5,12 @@ enum FamilyIllnessOptions { nenhuma, um_parente_cardiaco_mais_60_anos, dois_pare
                             tres_parentes_cardiaco_menos_60_anos }
 
 class FamilyIllnessRadioStatefulWidget extends StatefulWidget {
-  const FamilyIllnessRadioStatefulWidget({Key? key}) : super(key: key);
+  //final void Function(FamilyIllnessOptions? option) onOptionSelected;
+
+  const FamilyIllnessRadioStatefulWidget({
+    Key? key,
+    //required this.onOptionSelected,
+    }) : super(key: key);
 
   @override
   State<FamilyIllnessRadioStatefulWidget> createState() => _FamilyIllnessRadioStatefulWidget();
@@ -52,6 +57,7 @@ class _FamilyIllnessRadioStatefulWidget extends State<FamilyIllnessRadioStateful
             onChanged: (FamilyIllnessOptions? value) {
               setState(() {
                 _familyIllness = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -71,6 +77,7 @@ class _FamilyIllnessRadioStatefulWidget extends State<FamilyIllnessRadioStateful
             onChanged: (FamilyIllnessOptions? value) {
               setState(() {
                 _familyIllness = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -90,6 +97,7 @@ class _FamilyIllnessRadioStatefulWidget extends State<FamilyIllnessRadioStateful
             onChanged: (FamilyIllnessOptions? value) {
               setState(() {
                 _familyIllness = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -109,6 +117,7 @@ class _FamilyIllnessRadioStatefulWidget extends State<FamilyIllnessRadioStateful
             onChanged: (FamilyIllnessOptions? value) {
               setState(() {
                 _familyIllness = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -128,6 +137,7 @@ class _FamilyIllnessRadioStatefulWidget extends State<FamilyIllnessRadioStateful
             onChanged: (FamilyIllnessOptions? value) {
               setState(() {
                 _familyIllness = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),

@@ -4,7 +4,12 @@ enum WheightOptions { inferior_2_3_peso_normal, menos_2_3_mais_2_3_peso_normal, 
                       de_9_1_a_15_9_acima_peso_normal, de_16_a_22_9_acima_peso_normal, mais_23_acima_peso_normal }
 
 class WheightRadioStatefulWidget extends StatefulWidget {
-  const WheightRadioStatefulWidget({Key? key}) : super(key: key);
+  //final void Function(WheightOptions? option) onOptionSelected;
+
+  const WheightRadioStatefulWidget({
+    Key? key,
+    //required this.onOptionSelected,
+    }) : super(key: key);
 
   @override
   State<WheightRadioStatefulWidget> createState() => _WheightRadioStatefulWidget();
@@ -32,6 +37,7 @@ class _WheightRadioStatefulWidget extends State<WheightRadioStatefulWidget> {
             onChanged: (WheightOptions? value) {
               setState(() {
                 _wheight = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -51,6 +57,7 @@ class _WheightRadioStatefulWidget extends State<WheightRadioStatefulWidget> {
             onChanged: (WheightOptions? value) {
               setState(() {
                 _wheight = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -70,6 +77,7 @@ class _WheightRadioStatefulWidget extends State<WheightRadioStatefulWidget> {
             onChanged: (WheightOptions? value) {
               setState(() {
                 _wheight = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -89,6 +97,7 @@ class _WheightRadioStatefulWidget extends State<WheightRadioStatefulWidget> {
             onChanged: (WheightOptions? value) {
               setState(() {
                 _wheight = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -108,6 +117,7 @@ class _WheightRadioStatefulWidget extends State<WheightRadioStatefulWidget> {
             onChanged: (WheightOptions? value) {
               setState(() {
                 _wheight = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -127,6 +137,7 @@ class _WheightRadioStatefulWidget extends State<WheightRadioStatefulWidget> {
             onChanged: (WheightOptions? value) {
               setState(() {
                 _wheight = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),

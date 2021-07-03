@@ -1,8 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_ap2/Models/person.dart';
+import 'package:flutter_ap2/database/app_database.dart';
 import 'package:flutter_ap2/widgets/activity_radio.dart';
 import 'package:flutter_ap2/widgets/age_radio.dart';
 import 'package:flutter_ap2/widgets/blood_pressure_radio.dart';
@@ -12,14 +11,23 @@ import 'package:flutter_ap2/widgets/gender_radio.dart';
 import 'package:flutter_ap2/widgets/smoke_radio.dart';
 import 'package:flutter_ap2/widgets/wheight_radio.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
 
   @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  DatabaseHelper helper= DatabaseHelper();
+
+  @override
   Widget build(BuildContext context) {
-    int _age;
-    int _bloodPressure;
-    int _cholesterol;
+     AgeOptions? _age= AgeOptions.dez_a_20_anos;
+     BloodPressureOptions? _bloodPressure = BloodPressureOptions.sistolica_100_a_119;
+     String _name;
+     //demais variáveis
+     TextEditingController titleController= TextEditingController();
 
     return NotificationListener<OverscrollIndicatorNotification>(
       onNotification: (OverscrollIndicatorNotification? overscroll) {
@@ -79,18 +87,20 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 45),
+
                 TextField(
+                  controller: titleController,
                   cursorColor: Colors.greenAccent,
                   maxLength: 20,
                   decoration: InputDecoration(
                     counterStyle: TextStyle(color: Colors.greenAccent),
                     border: OutlineInputBorder(),
                     hintText: 'Insira seu nome',
-                    hintStyle: 
+                    hintStyle:
                       TextStyle(
                         fontSize: 14,
                         color: Colors.white,
-                      ), 
+                      ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.greenAccent),
                     ),
@@ -99,12 +109,13 @@ class HomePage extends StatelessWidget {
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.red),
-                    ),    
+                    ),
                   ),
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
+
                 SizedBox(height: 20),
                 Row(
                   children: [
@@ -118,8 +129,8 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 AgeRadioStatefulWidget(
-                  onOptionSelected: (value){
-                    _age=value!.index;
+                   onOptionSelected: (value){
+                     _age=value!;
                   },
                 ),
                 SizedBox(height: 25),
@@ -134,7 +145,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                GenderRadioStatefulWidget(),
+                GenderRadioStatefulWidget(
+                  // onOptionSelected: (value){
+                  //    _gender=value!;
+                  //  },
+                ),
                 SizedBox(height: 25),
                 Row(
                   children: [
@@ -147,7 +162,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                WheightRadioStatefulWidget(),
+                WheightRadioStatefulWidget(
+                  // onOptionSelected: (value){
+                  //    _wheight=value!;
+                  //  },                  
+                ),
                 SizedBox(height: 25),
                 Row(
                   children: [
@@ -160,7 +179,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                ActivityRadioStatefulWidget(),
+                ActivityRadioStatefulWidget(
+                  // onOptionSelected: (value){
+                  //    _activity=value!;
+                  //  },
+                ),
                 SizedBox(height: 25),
                 Row(
                   children: [
@@ -173,7 +196,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SmokeRadioStatefulWidget(),
+                SmokeRadioStatefulWidget(
+                  // onOptionSelected: (value){
+                  //    _smoke=value!;
+                  //  },
+                ),
                 SizedBox(height: 25),
                 Row(
                   children: [
@@ -187,9 +214,9 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 BloodPressureRadioStatefulWidget(
-                  onOptionSelected: (value){
-                    _bloodPressure=value!.index;
-                  },
+                   onOptionSelected: (value){
+                     _bloodPressure=value!;
+                   },
                 ),
                 SizedBox(height: 25),
                 Row(
@@ -203,7 +230,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                FamilyIllnessRadioStatefulWidget(),
+                FamilyIllnessRadioStatefulWidget(
+                  // onOptionSelected: (value){
+                  //    _familyIllness=value!;
+                  //  },
+                ),
                 SizedBox(height: 25),
                 Row(
                   children: [
@@ -217,15 +248,15 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 CholesterolRadioStatefulWidget(
-                  onOptionSelected: (value){
-                    _cholesterol=value!.index;
-                  },
+                  // onOptionSelected: (value){
+                  //    _cholesterol=value!;
+                  //  },                  
                 ),
                 SizedBox(height: 20),
                 Container(          //CONTAINER DO RESULTADO FINAL COM A INFO DA SOMA
 
 
-                
+
                   //color: Colors.pink,
                   height: 150,
                   padding: EdgeInsets.only(
@@ -342,9 +373,17 @@ class HomePage extends StatelessWidget {
         ),
           floatingActionButton: FloatingActionButton(
             onPressed: (){
-              Person p1= Person(_name, _age, _bloodPressure, _cholesterol, _familyIllnessOptions, _genderOptions, _smokeOptions, _wheightOptions);
+              setState(() {
 
-            }, tooltip: "Salvar Avaliação",
+
+              //  debugPrint(_age!.toString());
+                Person p1= Person(titleController.text,_age!,_bloodPressure!); //(titleController.text,_age!,_bloodPressure!,_cholesterol!,_familyIllness!,_gender!,_smoke!,_wheight!,activity!)
+                add(p1);
+                debugPrint("SALVAR");
+              });
+
+
+            },tooltip: "Salvar Avaliação",
             child: Icon (Icons.save),
           ),
         // bottomNavigationBar: Container(
@@ -367,13 +406,14 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-  
-  // void _showAlertDialog(String title, String message){
-  //   AlertDialog alertDialog = AlertDialog(
-  //     title: Text(title),
-  //     content: Text(age_radio.),
-  //   );
-  //   showDialog(context: this, builder:(_) => alertDialog);
-  // }
 
+  void add(Person p1) async{
+    int result= await helper.insertPerson(p1);
+    debugPrint(result.toString());
+   /* AlertDialog alertDialog = AlertDialog(
+      title: Text("SALVO?"),
+      content: Text(result.toString()),
+    );
+    showDialog(context: context, builder: (_) => alertDialog);*/
+  }
 }

@@ -4,7 +4,12 @@ enum SmokeOptions { nao_fumante, charuto_chachimbo, dez_cigarros_dia, onze_a_20_
                     vinte_e_um_a_30_cigarros_dia, mais_31_cigarros_dia }
 
 class SmokeRadioStatefulWidget extends StatefulWidget {
-  const SmokeRadioStatefulWidget({Key? key}) : super(key: key);
+  //final void Function(SmokeOptions? option) onOptionSelected;
+
+  const SmokeRadioStatefulWidget({
+    Key? key,
+    //required this.onOptionSelected,
+    }) : super(key: key);
 
   @override
   State<SmokeRadioStatefulWidget> createState() => _SmokeRadioStatefulWidget();
@@ -32,6 +37,7 @@ class _SmokeRadioStatefulWidget extends State<SmokeRadioStatefulWidget> {
             onChanged: (SmokeOptions? value) {
               setState(() {
                 _smoke = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -51,6 +57,7 @@ class _SmokeRadioStatefulWidget extends State<SmokeRadioStatefulWidget> {
             onChanged: (SmokeOptions? value) {
               setState(() {
                 _smoke = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -70,6 +77,7 @@ class _SmokeRadioStatefulWidget extends State<SmokeRadioStatefulWidget> {
             onChanged: (SmokeOptions? value) {
               setState(() {
                 _smoke = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -89,6 +97,7 @@ class _SmokeRadioStatefulWidget extends State<SmokeRadioStatefulWidget> {
             onChanged: (SmokeOptions? value) {
               setState(() {
                 _smoke = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -108,6 +117,7 @@ class _SmokeRadioStatefulWidget extends State<SmokeRadioStatefulWidget> {
             onChanged: (SmokeOptions? value) {
               setState(() {
                 _smoke = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -127,6 +137,7 @@ class _SmokeRadioStatefulWidget extends State<SmokeRadioStatefulWidget> {
             onChanged: (SmokeOptions? value) {
               setState(() {
                 _smoke = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),

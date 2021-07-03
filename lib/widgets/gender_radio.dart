@@ -4,7 +4,12 @@ enum GenderOptions { fem_menos_40_anos, fem_40_a_50_anos, fem_mais_50_anos, masc
                     masc_baixa_estatura_calvo }
 
 class GenderRadioStatefulWidget extends StatefulWidget {
-  const GenderRadioStatefulWidget({Key? key}) : super(key: key);
+  //final void Function(GenderOptions? option) onOptionSelected;
+
+  const GenderRadioStatefulWidget({
+    Key? key,
+    //required this.onOptionSelected,
+    }) : super(key: key);
 
   @override
   State<GenderRadioStatefulWidget> createState() => _GenderRadioStatefulWidget();
@@ -32,6 +37,7 @@ class _GenderRadioStatefulWidget extends State<GenderRadioStatefulWidget> {
             onChanged: (GenderOptions? value) {
               setState(() {
                 _gender = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -51,6 +57,7 @@ class _GenderRadioStatefulWidget extends State<GenderRadioStatefulWidget> {
             onChanged: (GenderOptions? value) {
               setState(() {
                 _gender = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -70,6 +77,7 @@ class _GenderRadioStatefulWidget extends State<GenderRadioStatefulWidget> {
             onChanged: (GenderOptions? value) {
               setState(() {
                 _gender = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -89,6 +97,7 @@ class _GenderRadioStatefulWidget extends State<GenderRadioStatefulWidget> {
             onChanged: (GenderOptions? value) {
               setState(() {
                 _gender = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -108,6 +117,7 @@ class _GenderRadioStatefulWidget extends State<GenderRadioStatefulWidget> {
             onChanged: (GenderOptions? value) {
               setState(() {
                 _gender = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -127,6 +137,7 @@ class _GenderRadioStatefulWidget extends State<GenderRadioStatefulWidget> {
             onChanged: (GenderOptions? value) {
               setState(() {
                 _gender = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),

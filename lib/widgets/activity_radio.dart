@@ -5,7 +5,12 @@ enum ActivityOptions { esforco_prof_rec_intenso, esforco_prof_rec_moderado,
                       trab_sedentario_esforco_rec_leve, ausencia_exercicio }
 
 class ActivityRadioStatefulWidget extends StatefulWidget {
-  const ActivityRadioStatefulWidget({Key? key}) : super(key: key);
+  //final void Function(ActivityOptions? option) onOptionSelected;
+
+  const ActivityRadioStatefulWidget({
+    Key? key,
+    //required this.onOptionSelected,
+    }) : super(key: key);
 
   @override
   State<ActivityRadioStatefulWidget> createState() => _ActivityRadioStatefulWidget();
@@ -33,6 +38,7 @@ class _ActivityRadioStatefulWidget extends State<ActivityRadioStatefulWidget> {
             onChanged: (ActivityOptions? value) {
               setState(() {
                 _activity = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -52,6 +58,7 @@ class _ActivityRadioStatefulWidget extends State<ActivityRadioStatefulWidget> {
             onChanged: (ActivityOptions? value) {
               setState(() {
                 _activity = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -71,6 +78,7 @@ class _ActivityRadioStatefulWidget extends State<ActivityRadioStatefulWidget> {
             onChanged: (ActivityOptions? value) {
               setState(() {
                 _activity = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -90,6 +98,7 @@ class _ActivityRadioStatefulWidget extends State<ActivityRadioStatefulWidget> {
             onChanged: (ActivityOptions? value) {
               setState(() {
                 _activity = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -109,6 +118,7 @@ class _ActivityRadioStatefulWidget extends State<ActivityRadioStatefulWidget> {
             onChanged: (ActivityOptions? value) {
               setState(() {
                 _activity = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
@@ -128,6 +138,7 @@ class _ActivityRadioStatefulWidget extends State<ActivityRadioStatefulWidget> {
             onChanged: (ActivityOptions? value) {
               setState(() {
                 _activity = value;
+                //widget.onOptionSelected(value);
               });
             },
             activeColor: Color(0xFF2FFFA0),
