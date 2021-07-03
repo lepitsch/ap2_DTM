@@ -32,7 +32,7 @@ class DatabaseHelper {
 
   void _createDb(Database db, int newVersion) async {
     await db.execute(
-        'Create table $personTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colName TEXT, $colAgeOptions INTEGER)');
+        'Create table $personTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colName TEXT, $colAgeOptions INTEGER,$colBloodPressureOptions INTEGER)');
   }
 
 // void _createDb(Database db, int newVersion) async {
@@ -43,7 +43,7 @@ class DatabaseHelper {
 
   void _onUpgrade(Database db, int oldVersion, int newVersion) async {
     await db.execute("DROP TABLE $personTable");
-    await db.execute('Create table $personTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colName TEXT, $colAgeOptions INTEGER)');
+    await db.execute('Create table $personTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colName TEXT, $colAgeOptions INTEGER,$colBloodPressureOptions INTEGER)');
 
   }
 

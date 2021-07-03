@@ -25,8 +25,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
      AgeOptions? _age= AgeOptions.dez_a_20_anos;
      BloodPressureOptions? _bloodPressure = BloodPressureOptions.sistolica_100_a_119;
+     //CholesterolOptions? _cholesterol = CholesterolOptions.abaixo_180_sem_gordura_animal;
+     //FamilyIllnessOptions? _familyIllness = FamilyIllnessOptions.nenhuma;
+     //GenderOptions? _gender = GenderOptions.fem_menos_40_anos;
+     //SmokeOptions? _smoke = SmokeOptions.nao_fumante;
+     //WheightOptions? _wheight = WheightOptions.inferior_2_3_peso_normal;
+     //ActivityOptions? _activity = ActivityOptions.esforco_prof_rec_intenso;
      String _name;
-     //demais variáveis
      TextEditingController titleController= TextEditingController();
 
     return NotificationListener<OverscrollIndicatorNotification>(
