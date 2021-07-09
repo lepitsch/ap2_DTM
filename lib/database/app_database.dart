@@ -13,12 +13,12 @@ class DatabaseHelper {
   String colName = 'name';
   String colAgeOptions = 'age';
   String colBloodPressureOptions = 'bloodPressure';
-  // String colCholesterolOptions = "_cholesterolOptions";
-  // String colFamilyIllnessOptions = "_familyIllnessOptions";
-  // String colGenderOptions = "_genderOptions";
-  // String colSmokeOptions = "_smokeOptions"; 
-  // String colWheightOptions = "_wheightOptions";
-  // String colActivityOptions = "activity"
+  // String colCholesterolOptions = 'cholesterol';
+  // String colFamilyIllnessOptions = 'familyIllness';
+  // String colGenderOptions = 'gender';
+  // String colSmokeOptions = 'smoke'; 
+  // String colWheightOptions = 'wheight';
+  // String colActivityOptions = 'activity';
 
 
   DatabaseHelper._createInstancia(); //Construtor nomeado.
